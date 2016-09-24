@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using NCD_Web.Models;
+using NCD_Model;
 
 namespace NCD_Web
 {

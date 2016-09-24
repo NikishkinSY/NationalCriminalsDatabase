@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using NCD_Web.Models;
+using NCD_Model;
 
 namespace NCD_Web.Controllers
 {
