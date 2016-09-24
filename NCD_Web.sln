@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCD_Web", "NCD_Web\NCD_Web.csproj", "{D5185DEC-75D2-44B7-969B-14862027BFE3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E7AB4035-8F6A-47E7-B240-34AA0B5A5DC6} = {E7AB4035-8F6A-47E7-B240-34AA0B5A5DC6}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCD_Web.Tests", "NCD_Web.Tests\NCD_Web.Tests.csproj", "{99650142-A2C9-4249-B38D-B75FD784DE75}"
 EndProject

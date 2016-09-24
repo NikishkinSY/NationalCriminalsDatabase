@@ -17,7 +17,6 @@ namespace NCD_Model
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Surname { get; set; }
         public byte Age { get; set; }
         public Sex Sex { get; set; }
         public ushort Height { get; set; }

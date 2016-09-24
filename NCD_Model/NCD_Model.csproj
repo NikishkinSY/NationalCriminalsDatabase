@@ -58,6 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\IContext.cs" />
+    <Compile Include="Migrations\201609241425019_RemoveSurname.cs" />
+    <Compile Include="Migrations\201609241425019_RemoveSurname.Designer.cs">
+      <DependentUpon>201609241425019_RemoveSurname.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -69,6 +73,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609241425019_RemoveSurname.resx">
+      <DependentUpon>201609241425019_RemoveSurname.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,3 +1,33 @@
-﻿@{
+﻿@model NCD_Web.Models.SearchParamsViewModel
+
+@{
     ViewBag.Title = "Home Page";
 }
+
+<div class="row">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <div class="form-group input-indent">
+            @Html.LabelFor(m => m.Names, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Names, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Names, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<div class="form-group input-indent">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+        <div class="form-group input-indent">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Log in" class="btn btn-primary" />
+                <div class="text-danger">
+                    @ViewBag.Error
+                </div>
+            </div>
+        </div>
+    }
+</div>

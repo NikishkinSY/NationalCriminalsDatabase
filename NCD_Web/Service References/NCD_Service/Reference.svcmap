@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fd87a34d-0eb9-49fb-8096-0a5f57afc369" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:53675/Search.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Search.wsdl" MetadataType="Wsdl" ID="55e0f12e-bc46-4003-8d44-ee263a33351b" SourceId="1" SourceUrl="http://localhost:53675/Search.svc?wsdl" />
+    <MetadataFile FileName="Search.xsd" MetadataType="Schema" ID="4046a7c1-a989-40e0-8926-e046a7dd3677" SourceId="1" SourceUrl="http://localhost:53675/Search.svc?xsd=xsd1" />
+    <MetadataFile FileName="Search1.xsd" MetadataType="Schema" ID="95848580-2831-4e27-89ae-a36da3384378" SourceId="1" SourceUrl="http://localhost:53675/Search.svc?xsd=xsd0" />
+    <MetadataFile FileName="Search2.xsd" MetadataType="Schema" ID="69a74773-5453-4c83-b2b3-b7042c9a266a" SourceId="1" SourceUrl="http://localhost:53675/Search.svc?xsd=xsd3" />
+    <MetadataFile FileName="Search3.xsd" MetadataType="Schema" ID="4e9c23ea-0ea7-4546-99b0-31cb54f4b65c" SourceId="1" SourceUrl="http://localhost:53675/Search.svc?xsd=xsd2" />
+    <MetadataFile FileName="Search.disco" MetadataType="Disco" ID="8c1be178-88fa-4911-8720-f604498da71a" SourceId="1" SourceUrl="http://localhost:53675/Search.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
