@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCD_WebService", "NCD_WebSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCD_Model", "NCD_Model\NCD_Model.csproj", "{7298D9F1-2E98-44A7-96CC-397DF9CDBCB4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCD_EmailSend", "NCD_EmailSend\NCD_EmailSend.csproj", "{BF01D405-807F-4293-BA64-3CD0DDBB38EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7298D9F1-2E98-44A7-96CC-397DF9CDBCB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7298D9F1-2E98-44A7-96CC-397DF9CDBCB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7298D9F1-2E98-44A7-96CC-397DF9CDBCB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF01D405-807F-4293-BA64-3CD0DDBB38EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF01D405-807F-4293-BA64-3CD0DDBB38EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF01D405-807F-4293-BA64-3CD0DDBB38EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF01D405-807F-4293-BA64-3CD0DDBB38EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

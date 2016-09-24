@@ -12,6 +12,8 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using NCD_Web.Models;
 using NCD_Model;
+using NCD_EmailSend;
+using System.Net.Mail;
 
 namespace NCD_Web
 {
@@ -19,8 +21,7 @@ namespace NCD_Web
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            return EmailSendManager.EmailSendAsync(message.Body, message.Destination, message.Subject);
         }
     }
 
@@ -83,7 +84,10 @@ namespace NCD_Web
             if (dataProtectionProvider != null)
             {
                 manager.UserTokenProvider = 
-                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"))
+                    {
+                        TokenLifespan = TimeSpan.FromHours(3)
+                    };
             }
             return manager;
         }

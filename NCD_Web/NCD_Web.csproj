@@ -279,6 +279,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NCD_EmailSend\NCD_EmailSend.csproj">
+      <Project>{bf01d405-807f-4293-ba64-3cd0ddbb38eb}</Project>
+      <Name>NCD_EmailSend</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NCD_Model\NCD_Model.csproj">
       <Project>{7298d9f1-2e98-44a7-96cc-397df9cdbcb4}</Project>
       <Name>NCD_Model</Name>
