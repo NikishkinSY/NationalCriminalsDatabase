@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NCD_Web;
-using NCD_Web.Controllers;
 using NCD_Web.NCD_Service;
-using NCD_Web.Models;
-using Ninject;
-using NCD_Web.App_Start;
 
 namespace NCD_Web.Controllers.Tests
 {

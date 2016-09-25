@@ -1,20 +1,4 @@
 ﻿using NCD_Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
-using PdfSharp;
-using PdfSharp.Drawing;
-using PdfSharp.Pdf;
-using PdfSharp.Pdf.IO;
-using System.Net.Mail;
-using System.IO;
-using System.Net.Mime;
-using NCD_EmailSend;
-using System.Threading.Tasks;
 using NLog;
 
 namespace NCD_WebService

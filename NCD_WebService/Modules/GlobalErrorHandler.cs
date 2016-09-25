@@ -1,13 +1,10 @@
 ﻿using NLog;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
-using System.Web;
 
 namespace NCD_WebService
 {
@@ -24,8 +21,7 @@ namespace NCD_WebService
             return true;
         }
 
-        public void ProvideFault(Exception error, MessageVersion version,
-                                                                      ref Message fault)
+        public void ProvideFault(Exception error, MessageVersion version, ref Message fault)
         {
             //Nothing here - exception will go up as usual
         }

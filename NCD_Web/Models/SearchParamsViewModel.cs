@@ -10,6 +10,7 @@ namespace NCD_Web.Models
 {
     public class SearchParamsViewModel
     {
+        
         public string Names { get; set; }
 
         [Range(0, 255, ErrorMessage = "Height must be between 0 and 255")]

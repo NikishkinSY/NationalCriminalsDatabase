@@ -14,7 +14,7 @@
         <div class="row search-row">
             <label class="col-sm-4 control-label">Names (use comma)</label>
             <div class="col-sm-8">
-                @Html.TextBoxFor(x => x.Names, new { @class = "form-control" })
+                @Html.TextBoxFor(x => x.Names, new { @class = "form-control", @MaxLength = "255" })
                 @Html.ValidationMessageFor(x => x.Names, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -28,7 +28,7 @@
         <div class="row search-row">
             <label class="col-sm-4 control-label">Nationality (use comma)</label>
             <div class="col-sm-8">
-                @Html.TextBoxFor(x => x.Nationality, new { @class = "form-control" })
+                @Html.TextBoxFor(x => x.Nationality, new { @class = "form-control", @MaxLength = "255" })
                 @Html.ValidationMessageFor(x => x.Nationality, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -37,12 +37,12 @@
             <div class="col-sm-8">
                 <div class="row">
                     <div class="col-sm-5">
-                        @Html.TextBoxFor(x => x.StartAge, new { @class = "form-control" })
+                        @Html.TextBoxFor(x => x.StartAge, new { @class = "form-control", @type = "number" })
                         @Html.ValidationMessageFor(x => x.StartAge, "", new { @class = "text-danger" })
                     </div>
                     <label class="col-sm-2 control-label">-</label>
                     <div class="col-sm-5">
-                        @Html.TextBoxFor(x => x.EndAge, new { @class = "form-control" })
+                        @Html.TextBoxFor(x => x.EndAge, new { @class = "form-control", @type = "number" })
                         @Html.ValidationMessageFor(x => x.EndAge, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -53,12 +53,12 @@
             <div class="col-sm-8">
                 <div class="row">
                     <div class="col-sm-5">
-                        @Html.TextBoxFor(x => x.StartHeight, new { @class = "form-control" })
+                        @Html.TextBoxFor(x => x.StartHeight, new { @class = "form-control", @type = "number" })
                         @Html.ValidationMessageFor(x => x.StartHeight, "", new { @class = "text-danger" })
                     </div>
                     <label class="col-sm-2 control-label">-</label>
                     <div class="col-sm-5">
-                        @Html.TextBoxFor(x => x.EndHeight, new { @class = "form-control" })
+                        @Html.TextBoxFor(x => x.EndHeight, new { @class = "form-control", @type = "number" })
                         @Html.ValidationMessageFor(x => x.EndHeight, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -69,12 +69,12 @@
             <div class="col-sm-8">
                 <div class="row">
                     <div class="col-sm-5">
-                        @Html.TextBoxFor(x => x.StartWeight, new { @class = "form-control" })
+                        @Html.TextBoxFor(x => x.StartWeight, new { @class = "form-control", @type = "number" })
                         @Html.ValidationMessageFor(x => x.StartWeight, "", new { @class = "text-danger" })
                     </div>
                     <label class="col-sm-2 control-label">-</label>
                     <div class="col-sm-5">
-                        @Html.TextBoxFor(x => x.EndWeight, new { @class = "form-control" })
+                        @Html.TextBoxFor(x => x.EndWeight, new { @class = "form-control", @type = "number" })
                         @Html.ValidationMessageFor(x => x.EndWeight, "", new { @class = "text-danger" })
                     </div>
                 </div>

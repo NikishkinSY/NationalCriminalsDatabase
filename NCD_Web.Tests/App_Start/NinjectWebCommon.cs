@@ -10,7 +10,6 @@ namespace NCD_Web.Tests.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using NCD_Web.NCD_Service;
     using NCD_Model;
 
     public static class NinjectWebCommon 
