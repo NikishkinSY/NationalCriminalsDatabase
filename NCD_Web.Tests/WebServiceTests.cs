@@ -1,29 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 using NCD_Model;
-//using NCD_Web.NCD_Service;
-using NCD_WebService;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
 
 namespace NCD_WebService.Tests
 {
     [TestClass()]
     public class WebServiceTests
     {
-        //private IContext _dbContext;
-        private ISearch _searchService;
-        public WebServiceTests()
-        {
-            //_dbContext = DependencyResolver.Current.GetService<IContext>();
-
-            _searchService = DependencyResolver.Current.GetService<ISearch>();
-        }
-
         [TestMethod()]
         public void CreateQueryTest()
         {
