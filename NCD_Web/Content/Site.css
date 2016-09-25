@@ -21,7 +21,7 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 400px;
 }
 
 .search-row{
@@ -30,5 +30,5 @@ textarea {
 }
 
 .search-body{
-    width:280px;
+    width:400px;
 }

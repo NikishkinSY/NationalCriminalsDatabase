@@ -13,7 +13,7 @@ namespace NCD_WebService
     public interface ISearch
     {
         [OperationContract]
-        bool GetCriminalPersons(SearchParams searchParams, string email, out string result);
+        Result GetCriminalPersons(SearchParams searchParams, int maxItems, string email);
     }
 
 
@@ -39,6 +39,15 @@ namespace NCD_WebService
         public ushort? EndWeight { get; set; }
         [DataMember]
         public string[] Nationality { get; set; }
+    }
+
+    [DataContract]
+    public class Result
+    {
+        [DataMember]
+        public bool Success { get; set; }
+        [DataMember]
+        public string Error { get; set; }
     }
 
     //[DataContract]

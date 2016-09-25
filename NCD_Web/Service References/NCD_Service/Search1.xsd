@@ -5,6 +5,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/NCD_WebService" minOccurs="0" name="searchParams" nillable="true" type="q1:SearchParams" />
+        <xs:element minOccurs="0" name="maxItems" type="xs:int" />
         <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -12,8 +13,7 @@
   <xs:element name="GetCriminalPersonsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetCriminalPersonsResult" type="xs:boolean" />
-        <xs:element minOccurs="0" name="result" nillable="true" type="xs:string" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/NCD_WebService" minOccurs="0" name="GetCriminalPersonsResult" nillable="true" type="q2:Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

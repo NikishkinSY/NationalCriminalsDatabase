@@ -9,7 +9,15 @@ namespace NCD_EmailSend
 {
     public static class EmailSendManager
     {
-        public static async Task EmailSendAsync(string body, string destination, string subject, List<Attachment> attachments = null)
+        /// <summary>
+        /// Send email async
+        /// </summary>
+        /// <param name="body">email body</param>
+        /// <param name="destination">destination email</param>
+        /// <param name="subject">email subject</param>
+        /// <param name="attachments">attachments for email</param>
+        /// <returns></returns>
+        public static async Task EmailSendAsync(string body, string destination, string subject, IEnumerable<Attachment> attachments = null)
         {
             using (var message = new MailMessage())
             {
@@ -36,6 +44,24 @@ namespace NCD_EmailSend
                     foreach (var item in message.Attachments)
                         item.Dispose();
                 }
+            }
+        }
+
+        /// <summary>
+        /// Validate email
+        /// </summary>
+        /// <param name="emailAddress">string email</param>
+        /// <returns></returns>
+        public static bool IsValidEmail(string emailAddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
             }
         }
     }

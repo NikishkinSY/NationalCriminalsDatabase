@@ -186,56 +186,76 @@ namespace NCD_Web.NCD_Service {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Result", Namespace="http://schemas.datacontract.org/2004/07/NCD_WebService")]
+    [System.SerializableAttribute()]
+    public partial class Result : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool SuccessField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Error {
+            get {
+                return this.ErrorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorField, value) != true)) {
+                    this.ErrorField = value;
+                    this.RaisePropertyChanged("Error");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Success {
+            get {
+                return this.SuccessField;
+            }
+            set {
+                if ((this.SuccessField.Equals(value) != true)) {
+                    this.SuccessField = value;
+                    this.RaisePropertyChanged("Success");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="NCD_Service.ISearch")]
     public interface ISearch {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISearch/GetCriminalPersons", ReplyAction="http://tempuri.org/ISearch/GetCriminalPersonsResponse")]
-        NCD_Web.NCD_Service.GetCriminalPersonsResponse GetCriminalPersons(NCD_Web.NCD_Service.GetCriminalPersonsRequest request);
+        NCD_Web.NCD_Service.Result GetCriminalPersons(NCD_Web.NCD_Service.SearchParams searchParams, int maxItems, string email);
         
-        // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISearch/GetCriminalPersons", ReplyAction="http://tempuri.org/ISearch/GetCriminalPersonsResponse")]
-        System.Threading.Tasks.Task<NCD_Web.NCD_Service.GetCriminalPersonsResponse> GetCriminalPersonsAsync(NCD_Web.NCD_Service.GetCriminalPersonsRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCriminalPersons", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetCriminalPersonsRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public NCD_Web.NCD_Service.SearchParams searchParams;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string email;
-        
-        public GetCriminalPersonsRequest() {
-        }
-        
-        public GetCriminalPersonsRequest(NCD_Web.NCD_Service.SearchParams searchParams, string email) {
-            this.searchParams = searchParams;
-            this.email = email;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCriminalPersonsResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetCriminalPersonsResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public bool GetCriminalPersonsResult;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string result;
-        
-        public GetCriminalPersonsResponse() {
-        }
-        
-        public GetCriminalPersonsResponse(bool GetCriminalPersonsResult, string result) {
-            this.GetCriminalPersonsResult = GetCriminalPersonsResult;
-            this.result = result;
-        }
+        System.Threading.Tasks.Task<NCD_Web.NCD_Service.Result> GetCriminalPersonsAsync(NCD_Web.NCD_Service.SearchParams searchParams, int maxItems, string email);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -265,22 +285,12 @@ namespace NCD_Web.NCD_Service {
                 base(binding, remoteAddress) {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        NCD_Web.NCD_Service.GetCriminalPersonsResponse NCD_Web.NCD_Service.ISearch.GetCriminalPersons(NCD_Web.NCD_Service.GetCriminalPersonsRequest request) {
-            return base.Channel.GetCriminalPersons(request);
+        public NCD_Web.NCD_Service.Result GetCriminalPersons(NCD_Web.NCD_Service.SearchParams searchParams, int maxItems, string email) {
+            return base.Channel.GetCriminalPersons(searchParams, maxItems, email);
         }
         
-        public bool GetCriminalPersons(NCD_Web.NCD_Service.SearchParams searchParams, string email, out string result) {
-            NCD_Web.NCD_Service.GetCriminalPersonsRequest inValue = new NCD_Web.NCD_Service.GetCriminalPersonsRequest();
-            inValue.searchParams = searchParams;
-            inValue.email = email;
-            NCD_Web.NCD_Service.GetCriminalPersonsResponse retVal = ((NCD_Web.NCD_Service.ISearch)(this)).GetCriminalPersons(inValue);
-            result = retVal.result;
-            return retVal.GetCriminalPersonsResult;
-        }
-        
-        public System.Threading.Tasks.Task<NCD_Web.NCD_Service.GetCriminalPersonsResponse> GetCriminalPersonsAsync(NCD_Web.NCD_Service.GetCriminalPersonsRequest request) {
-            return base.Channel.GetCriminalPersonsAsync(request);
+        public System.Threading.Tasks.Task<NCD_Web.NCD_Service.Result> GetCriminalPersonsAsync(NCD_Web.NCD_Service.SearchParams searchParams, int maxItems, string email) {
+            return base.Channel.GetCriminalPersonsAsync(searchParams, maxItems, email);
         }
     }
 }

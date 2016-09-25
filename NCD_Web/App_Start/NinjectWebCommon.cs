@@ -11,6 +11,7 @@ namespace NCD_Web.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using NCD_Service;
+    using Modules;
 
     public static class NinjectWebCommon 
     {
@@ -23,6 +24,7 @@ namespace NCD_Web.App_Start
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
+            DynamicModuleUtility.RegisterModule(typeof(LogModule));
             bootstrapper.Initialize(CreateKernel);
         }
         

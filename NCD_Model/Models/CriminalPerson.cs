@@ -19,8 +19,10 @@ namespace NCD_Model
         public string Name { get; set; }
         public byte Age { get; set; }
         public Sex Sex { get; set; }
-        public ushort Height { get; set; }
-        public ushort Weight { get; set; }
+        [Range(0, 1000)]
+        public int Height { get; set; }
+        [Range(0, 1000)]
+        public int Weight { get; set; }
         public string Nationality { get; set; }
     }
 }

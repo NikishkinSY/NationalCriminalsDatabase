@@ -9,12 +9,14 @@ using System.Web.Mvc;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using NLog;
 
 namespace NCD_Web.Controllers
 {
     [Authorize]
     public class HomeController : Controller
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         private ISearch _searchService;
         private ApplicationUserManager _userManager;
 
@@ -37,6 +39,7 @@ namespace NCD_Web.Controllers
 
         public ActionResult Index()
         {
+            //throw new Exception("asdfsd");
             return View();
         }
 
@@ -48,16 +51,32 @@ namespace NCD_Web.Controllers
                 //get user email
                 string userId = User.Identity.GetUserId();
                 string email = await UserManager.GetEmailAsync(userId);
-                 
+
                 //get search params
                 SearchParams searchParams = Mapper.Map<SearchParams>(model);
 
                 //send to wcf service
-                await _searchService.GetCriminalPersonsAsync(new GetCriminalPersonsRequest(searchParams, email));
+                var result = await _searchService.GetCriminalPersonsAsync(searchParams, 20, email);
+                logger.Info("User ({0}) sent request to service", email);
+
+                if (result.Success)
+                    return View("SendEmail");
+                else
+                    ViewBag.Error = result.Error;
             }
             return View(model);
+        }
 
-            
+        /// <summary>
+        /// Error handler
+        /// </summary>
+        /// <param name="message">error message</param>
+        /// <returns></returns>
+        public ActionResult Error(string message = null)
+        {
+            if (!String.IsNullOrEmpty(message))
+                ViewBag.errorMessage = message;
+            return View();
         }
     }
 }
