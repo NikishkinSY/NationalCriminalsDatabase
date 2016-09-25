@@ -127,6 +127,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="PdfSharp.cs" />
     <Compile Include="WCFNinjectModule.cs" />
     <Compile Include="Search.svc.cs">
       <DependentUpon>Search.svc</DependentUpon>

@@ -7,6 +7,10 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using NCD_Web.Models;
 using NCD_Model;
+using AutoMapper;
+using NCD_Web.NCD_Service;
+using System.Linq;
+using NCD_Web.App_Start;
 
 namespace NCD_Web
 {
@@ -64,6 +68,8 @@ namespace NCD_Web
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+            AutoMapperConfig.Init();
         }
     }
 }

@@ -1,32 +1,88 @@
 ﻿@model NCD_Web.Models.SearchParamsViewModel
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Search conditions";
 }
 
-<div class="row">
+<div class="search-body">
+    <h2>@ViewBag.Title</h2>
+    <h4>Type any conditions</h4>
+    <hr />
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
     {
-        <div class="form-group input-indent">
-            @Html.LabelFor(m => m.Names, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Names, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Names, "", new { @class = "text-danger" })
+        <div class="row search-row">
+            @Html.LabelFor(x => x.Names, new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-9">
+                @Html.TextBoxFor(x => x.Names, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Names, "", new { @class = "text-danger" })
             </div>
         </div>
-        @*<div class="form-group input-indent">
-            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        <div class="row search-row">
+            @Html.LabelFor(x => x.Sex, new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-9">
+                @Html.EnumDropDownListFor(x => x.Sex, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Sex, "", new { @class = "text-danger" })
             </div>
-        </div>*@
-        <div class="form-group input-indent">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Log in" class="btn btn-primary" />
-                <div class="text-danger">
-                    @ViewBag.Error
+        </div>
+        <div class="row search-row">
+            @Html.LabelFor(x => x.Nationality, new { @class = "col-sm-3 control-label" })
+            <div class="col-sm-9">
+                @Html.TextBoxFor(x => x.Nationality, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Nationality, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row search-row">
+            <label class="col-sm-3 control-label">Age</label>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-5">
+                        @Html.TextBoxFor(x => x.StartAge, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.StartAge, "", new { @class = "text-danger" })
+                    </div>
+                    <label class="col-sm-2 control-label">-</label>
+                    <div class="col-sm-5">
+                        @Html.TextBoxFor(x => x.EndAge, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.EndAge, "", new { @class = "text-danger" })
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div class="row search-row">
+            <label class="col-sm-3 control-label">Height</label>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-5">
+                        @Html.TextBoxFor(x => x.StartHeight, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.StartHeight, "", new { @class = "text-danger" })
+                    </div>
+                    <label class="col-sm-2 control-label">-</label>
+                    <div class="col-sm-5">
+                        @Html.TextBoxFor(x => x.EndHeight, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.EndHeight, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row search-row">
+            <label class="col-sm-3 control-label">Width</label>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-5">
+                        @Html.TextBoxFor(x => x.StartWeight, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.StartWeight, "", new { @class = "text-danger" })
+                    </div>
+                    <label class="col-sm-2 control-label">-</label>
+                    <div class="col-sm-5">
+                        @Html.TextBoxFor(x => x.EndWeight, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.EndWeight, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search-row">
+            <input type="submit" value="Find" class="btn btn-primary" />
+            <div class="text-danger">
+                @ViewBag.Error
             </div>
         </div>
     }

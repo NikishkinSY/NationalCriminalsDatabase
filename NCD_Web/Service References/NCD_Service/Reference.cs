@@ -29,7 +29,7 @@ namespace NCD_Web.NCD_Service {
         private System.Nullable<ushort> EndHeightField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<ushort> EndWidthField;
+        private System.Nullable<ushort> EndWeightField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[] NamesField;
@@ -38,7 +38,7 @@ namespace NCD_Web.NCD_Service {
         private string[] NationalityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<NCD_Web.NCD_Service.Sex> SexField;
+        private System.Nullable<int> SexField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<byte> StartAgeField;
@@ -47,7 +47,7 @@ namespace NCD_Web.NCD_Service {
         private System.Nullable<ushort> StartHeightField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<ushort> StartWidthField;
+        private System.Nullable<ushort> StartWeightField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -86,14 +86,14 @@ namespace NCD_Web.NCD_Service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<ushort> EndWidth {
+        public System.Nullable<ushort> EndWeight {
             get {
-                return this.EndWidthField;
+                return this.EndWeightField;
             }
             set {
-                if ((this.EndWidthField.Equals(value) != true)) {
-                    this.EndWidthField = value;
-                    this.RaisePropertyChanged("EndWidth");
+                if ((this.EndWeightField.Equals(value) != true)) {
+                    this.EndWeightField = value;
+                    this.RaisePropertyChanged("EndWeight");
                 }
             }
         }
@@ -125,7 +125,7 @@ namespace NCD_Web.NCD_Service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<NCD_Web.NCD_Service.Sex> Sex {
+        public System.Nullable<int> Sex {
             get {
                 return this.SexField;
             }
@@ -164,14 +164,14 @@ namespace NCD_Web.NCD_Service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<ushort> StartWidth {
+        public System.Nullable<ushort> StartWeight {
             get {
-                return this.StartWidthField;
+                return this.StartWeightField;
             }
             set {
-                if ((this.StartWidthField.Equals(value) != true)) {
-                    this.StartWidthField = value;
-                    this.RaisePropertyChanged("StartWidth");
+                if ((this.StartWeightField.Equals(value) != true)) {
+                    this.StartWeightField = value;
+                    this.RaisePropertyChanged("StartWeight");
                 }
             }
         }
@@ -184,17 +184,6 @@ namespace NCD_Web.NCD_Service {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Sex", Namespace="http://schemas.datacontract.org/2004/07/NCD_WebService")]
-    public enum Sex : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Male = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Female = 1,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -217,11 +206,15 @@ namespace NCD_Web.NCD_Service {
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
         public NCD_Web.NCD_Service.SearchParams searchParams;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string email;
+        
         public GetCriminalPersonsRequest() {
         }
         
-        public GetCriminalPersonsRequest(NCD_Web.NCD_Service.SearchParams searchParams) {
+        public GetCriminalPersonsRequest(NCD_Web.NCD_Service.SearchParams searchParams, string email) {
             this.searchParams = searchParams;
+            this.email = email;
         }
     }
     
@@ -277,9 +270,10 @@ namespace NCD_Web.NCD_Service {
             return base.Channel.GetCriminalPersons(request);
         }
         
-        public bool GetCriminalPersons(NCD_Web.NCD_Service.SearchParams searchParams, out string result) {
+        public bool GetCriminalPersons(NCD_Web.NCD_Service.SearchParams searchParams, string email, out string result) {
             NCD_Web.NCD_Service.GetCriminalPersonsRequest inValue = new NCD_Web.NCD_Service.GetCriminalPersonsRequest();
             inValue.searchParams = searchParams;
+            inValue.email = email;
             NCD_Web.NCD_Service.GetCriminalPersonsResponse retVal = ((NCD_Web.NCD_Service.ISearch)(this)).GetCriminalPersons(inValue);
             result = retVal.result;
             return retVal.GetCriminalPersonsResult;

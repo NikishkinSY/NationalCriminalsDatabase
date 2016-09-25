@@ -13,7 +13,7 @@ namespace NCD_WebService
     public interface ISearch
     {
         [OperationContract]
-        bool GetCriminalPersons(SearchParams searchParams, out string result);
+        bool GetCriminalPersons(SearchParams searchParams, string email, out string result);
     }
 
 
@@ -28,25 +28,25 @@ namespace NCD_WebService
         [DataMember]
         public byte? EndAge { get; set; }
         [DataMember]
-        public Sex? Sex { get; set; }
+        public int? Sex { get; set; }
         [DataMember]
         public ushort? StartHeight { get; set; }
         [DataMember]
         public ushort? EndHeight { get; set; }
         [DataMember]
-        public ushort? StartWidth { get; set; }
+        public ushort? StartWeight { get; set; }
         [DataMember]
-        public ushort? EndWidth { get; set; }
+        public ushort? EndWeight { get; set; }
         [DataMember]
         public string[] Nationality { get; set; }
     }
 
-    [DataContract]
-    public enum Sex
-    {
-        [EnumMember]
-        Male,
-        [EnumMember]
-        Female
-    }
+    //[DataContract]
+    //public enum Sex
+    //{
+    //    [EnumMember]
+    //    Male,
+    //    [EnumMember]
+    //    Female
+    //}
 }

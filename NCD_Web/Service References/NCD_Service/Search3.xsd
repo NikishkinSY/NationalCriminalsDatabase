@@ -5,21 +5,14 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="EndAge" nillable="true" type="xs:unsignedByte" />
       <xs:element minOccurs="0" name="EndHeight" nillable="true" type="xs:unsignedShort" />
-      <xs:element minOccurs="0" name="EndWidth" nillable="true" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" name="EndWeight" nillable="true" type="xs:unsignedShort" />
       <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Names" nillable="true" type="q1:ArrayOfstring" />
       <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Nationality" nillable="true" type="q2:ArrayOfstring" />
-      <xs:element minOccurs="0" name="Sex" nillable="true" type="tns:Sex" />
+      <xs:element minOccurs="0" name="Sex" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="StartAge" nillable="true" type="xs:unsignedByte" />
       <xs:element minOccurs="0" name="StartHeight" nillable="true" type="xs:unsignedShort" />
-      <xs:element minOccurs="0" name="StartWidth" nillable="true" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" name="StartWeight" nillable="true" type="xs:unsignedShort" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="SearchParams" nillable="true" type="tns:SearchParams" />
-  <xs:simpleType name="Sex">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Male" />
-      <xs:enumeration value="Female" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="Sex" nillable="true" type="tns:Sex" />
 </xs:schema>
