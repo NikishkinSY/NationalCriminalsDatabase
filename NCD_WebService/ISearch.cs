@@ -8,16 +8,17 @@ using System.Text;
 
 namespace NCD_WebService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
     public interface ISearch
     {
+        //Get criminal persons from database and send to user's email
         [OperationContract]
         Result GetCriminalPersons(SearchParams searchParams, int maxItems, string email);
     }
 
-
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
+    /// <summary>
+    /// Search parameters for query criminal persons
+    /// </summary>
     [DataContract]
     public class SearchParams
     {
@@ -41,6 +42,9 @@ namespace NCD_WebService
         public string[] Nationality { get; set; }
     }
 
+    /// <summary>
+    /// Result with error message
+    /// </summary>
     [DataContract]
     public class Result
     {

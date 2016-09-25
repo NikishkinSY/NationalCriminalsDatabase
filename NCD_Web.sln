@@ -9,12 +9,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCD_Web", "NCD_Web\NCD_Web.
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCD_Web.Tests", "NCD_Web.Tests\NCD_Web.Tests.csproj", "{99650142-A2C9-4249-B38D-B75FD784DE75}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E7AB4035-8F6A-47E7-B240-34AA0B5A5DC6} = {E7AB4035-8F6A-47E7-B240-34AA0B5A5DC6}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCD_WebService", "NCD_WebService\NCD_WebService.csproj", "{E7AB4035-8F6A-47E7-B240-34AA0B5A5DC6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCD_Model", "NCD_Model\NCD_Model.csproj", "{7298D9F1-2E98-44A7-96CC-397DF9CDBCB4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCD_EmailSend", "NCD_EmailSend\NCD_EmailSend.csproj", "{BF01D405-807F-4293-BA64-3CD0DDBB38EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCD_WebServiceTests", "NCD_WebServiceTests\NCD_WebServiceTests.csproj", "{398307B0-5448-4873-BF9A-863EC1EF5929}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +47,10 @@ Global
 		{BF01D405-807F-4293-BA64-3CD0DDBB38EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF01D405-807F-4293-BA64-3CD0DDBB38EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF01D405-807F-4293-BA64-3CD0DDBB38EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{398307B0-5448-4873-BF9A-863EC1EF5929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{398307B0-5448-4873-BF9A-863EC1EF5929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{398307B0-5448-4873-BF9A-863EC1EF5929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{398307B0-5448-4873-BF9A-863EC1EF5929}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

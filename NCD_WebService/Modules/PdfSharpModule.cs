@@ -11,7 +11,7 @@ using System.Web;
 
 namespace NCD_WebService
 {
-    public static class PdfSharp
+    public static class PdfSharpModule
     {
         public static Attachment MakePdf(CriminalPerson item)
         {

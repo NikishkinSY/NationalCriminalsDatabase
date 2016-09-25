@@ -6,23 +6,47 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NCD_Web;
 using NCD_Web.Controllers;
+using NCD_Web.NCD_Service;
+using NCD_Web.Models;
+using Ninject;
+using NCD_Web.App_Start;
 
-namespace NCD_Web.Tests.Controllers
+namespace NCD_Web.Controllers.Tests
 {
-    [TestClass]
+    [TestClass()]
     public class HomeControllerTest
     {
-        [TestMethod]
-        public void Index()
+        private ISearch _searchService;
+
+        public HomeControllerTest()
         {
-            // Arrange
-            //HomeController controller = new HomeController();
+            _searchService = DependencyResolver.Current.GetService<ISearch>();
+        }
 
-            // Act
-            //ViewResult result = controller.Index() as ViewResult;
+        [TestMethod()]
+        public void ErrorTest()
+        {
+            var controller = new HomeController(_searchService);
+            var result = controller.Error(string.Empty) as ViewResult;
+            Assert.AreEqual("Error", result.ViewName);
+        }
 
-            // Assert
-            //Assert.IsNotNull(result);
+        [TestMethod()]
+        public void IndexTest()
+        {
+            var controller = new HomeController(_searchService);
+            var result = controller.Index() as ViewResult;
+            Assert.AreEqual("Index", result.ViewName);
+        }
+
+        [TestMethod()]
+        public void IndexTest1()
+        {
+            var controller = new HomeController(_searchService);
+            var task = controller.Index(new SearchParamsViewModel());
+            task.Wait();
+            var result = task.Result as ViewResult;
+            Assert.AreEqual("Index", result.ViewName);
         }
     }
 }

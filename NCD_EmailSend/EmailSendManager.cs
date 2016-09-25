@@ -56,7 +56,7 @@ namespace NCD_EmailSend
         {
             try
             {
-                MailAddress m = new MailAddress(emailaddress);
+                var email = new MailAddress(emailAddress);
                 return true;
             }
             catch (FormatException)
