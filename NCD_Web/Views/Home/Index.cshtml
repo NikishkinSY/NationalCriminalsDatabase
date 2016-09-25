@@ -12,29 +12,29 @@
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
     {
         <div class="row search-row">
-            @Html.LabelFor(x => x.Names, new { @class = "col-sm-3 control-label" })
-            <div class="col-sm-9">
+            <label class="col-sm-4 control-label">Names (use comma)</label>
+            <div class="col-sm-8">
                 @Html.TextBoxFor(x => x.Names, new { @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.Names, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="row search-row">
-            @Html.LabelFor(x => x.Sex, new { @class = "col-sm-3 control-label" })
-            <div class="col-sm-9">
+            <label class="col-sm-4 control-label">Sex</label>
+            <div class="col-sm-8">
                 @Html.EnumDropDownListFor(x => x.Sex, "", new { @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.Sex, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="row search-row">
-            @Html.LabelFor(x => x.Nationality, new { @class = "col-sm-3 control-label" })
-            <div class="col-sm-9">
+            <label class="col-sm-4 control-label">Nationality (use comma)</label>
+            <div class="col-sm-8">
                 @Html.TextBoxFor(x => x.Nationality, new { @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.Nationality, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="row search-row">
-            <label class="col-sm-3 control-label">Age</label>
-            <div class="col-sm-9">
+            <label class="col-sm-4 control-label">Age</label>
+            <div class="col-sm-8">
                 <div class="row">
                     <div class="col-sm-5">
                         @Html.TextBoxFor(x => x.StartAge, new { @class = "form-control" })
@@ -49,8 +49,8 @@
             </div>
         </div>
         <div class="row search-row">
-            <label class="col-sm-3 control-label">Height</label>
-            <div class="col-sm-9">
+            <label class="col-sm-4 control-label">Height</label>
+            <div class="col-sm-8">
                 <div class="row">
                     <div class="col-sm-5">
                         @Html.TextBoxFor(x => x.StartHeight, new { @class = "form-control" })
@@ -65,8 +65,8 @@
             </div>
         </div>
         <div class="row search-row">
-            <label class="col-sm-3 control-label">Weight</label>
-            <div class="col-sm-9">
+            <label class="col-sm-4 control-label">Weight</label>
+            <div class="col-sm-8">
                 <div class="row">
                     <div class="col-sm-5">
                         @Html.TextBoxFor(x => x.StartWeight, new { @class = "form-control" })

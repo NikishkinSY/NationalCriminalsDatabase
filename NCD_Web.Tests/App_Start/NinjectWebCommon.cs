@@ -11,6 +11,7 @@ namespace NCD_Web.Tests.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using NCD_Web.NCD_Service;
+    using NCD_Model;
 
     public static class NinjectWebCommon 
     {
@@ -62,7 +63,8 @@ namespace NCD_Web.Tests.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<ISearch>().To<SearchClient>();
+            //kernel.Bind<ISearch>().To<Search>();
+            kernel.Bind<IContext>().To<ApplicationDbContext>();
         }        
     }
 }

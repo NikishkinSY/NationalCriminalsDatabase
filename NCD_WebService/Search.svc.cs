@@ -25,10 +25,10 @@ namespace NCD_WebService
     public class Search : ISearch
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
-        IContext DbContext { get; set; }
+        private IContext _dbContext;
         public Search(IContext context)
         {
-            DbContext = context;
+            _dbContext = context;
         }
 
         public Result GetCriminalPersons(SearchParams searchParams, int maxItems, string email)
@@ -39,7 +39,7 @@ namespace NCD_WebService
             if (result.Success)
             {
                 //create query
-                var query = HelperModule.CreateQuery(searchParams, maxItems, DbContext.CriminalPersons);
+                var query = HelperModule.CreateQuery(searchParams, maxItems, _dbContext.CriminalPersons);
 
                 //get items and send emails
                 HelperModule.GetItemsAndSendEmailAsync(query, email);

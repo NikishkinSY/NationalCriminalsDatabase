@@ -11,6 +11,7 @@ namespace NCD_WebService
 {
     public static class HelperModule
     {
+        //default value
         public const int MaxItemsPerEmail = 10;
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -21,7 +22,7 @@ namespace NCD_WebService
         /// <param name="maxItems"></param>
         /// <param name="email"></param>
         /// <returns></returns>
-        internal static Result ValidateInputData(SearchParams searchParams, int maxItems, string email)
+        public static Result ValidateInputData(SearchParams searchParams, int maxItems, string email)
         {
             var result = new Result();
             result.Error = string.Empty;
@@ -61,7 +62,7 @@ namespace NCD_WebService
         /// <param name="query"></param>
         /// <param name="email"></param>
         /// <returns></returns>
-        internal static Task GetItemsAndSendEmailAsync(IEnumerable<CriminalPerson> query, string email)
+        public static Task GetItemsAndSendEmailAsync(IEnumerable<CriminalPerson> query, string email)
         {
             return Task.Run(async () =>
             {
@@ -109,7 +110,7 @@ namespace NCD_WebService
         /// <param name="maxItems"></param>
         /// <param name="source"></param>
         /// <returns></returns>
-        internal static IEnumerable<CriminalPerson> CreateQuery(SearchParams searchParams, int maxItems, IEnumerable<CriminalPerson> source)
+        public static IEnumerable<CriminalPerson> CreateQuery(SearchParams searchParams, int maxItems, IEnumerable<CriminalPerson> source)
         {
             IEnumerable<CriminalPerson> finalQuery = source.Take(maxItems);
             if (searchParams.Names != null && searchParams.Names.Any()) finalQuery = 

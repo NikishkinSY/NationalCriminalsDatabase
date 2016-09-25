@@ -13,6 +13,11 @@ namespace NCD_WebService
 {
     public static class PdfSharpModule
     {
+        /// <summary>
+        /// Create pdf file for criminal person and wrap it with attachment
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public static Attachment MakePdf(CriminalPerson item)
         {
             //make pdf document
@@ -30,6 +35,7 @@ namespace NCD_WebService
             var stream = new MemoryStream();
             document.Save(stream, false);
             document.Dispose();
+            //wrap it with attachment
             return new Attachment(stream, item.Name, MediaTypeNames.Application.Pdf);
         }
     }
