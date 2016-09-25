@@ -130,7 +130,6 @@
     </Compile>
     <Compile Include="Modules\HelperModule.cs" />
     <Compile Include="Modules\PdfSharpModule.cs" />
-    <Compile Include="Modules\WCFNinjectModule.cs" />
     <Compile Include="Search.svc.cs">
       <DependentUpon>Search.svc</DependentUpon>
     </Compile>

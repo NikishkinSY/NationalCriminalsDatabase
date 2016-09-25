@@ -82,6 +82,8 @@ namespace NCD_WebService
                     if (!attachments.Any())
                         await EmailSendManager.EmailSendAsync("No matches", email, "Criminal persons");
 
+                    int part = 1;
+                    int parts = attachments.Count / maxItems;
                     while (attachments.Any())
                     {
                         var attachmentsInEmail = attachments.Take(maxItems).ToArray();
@@ -89,7 +91,7 @@ namespace NCD_WebService
                         for (int i = 0; i < attachmentsInEmail.Length; i++)
                             attachments.Remove(attachmentsInEmail[i]);
 
-                        await EmailSendManager.EmailSendAsync(String.Format("Search results: {0}", items.Length), email, "Criminal persons", attachmentsInEmail);
+                        await EmailSendManager.EmailSendAsync(String.Format("Search results: {0}, part {1} of {2}", items.Length, part++, parts), email, "Criminal persons", attachmentsInEmail);
                     }
 
                     logger.Info("Succesfully sent emails to {0} with {1} attachments", email, items.Length);
