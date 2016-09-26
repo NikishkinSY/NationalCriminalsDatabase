@@ -6,5 +6,5 @@ Prerequisites:
 - IISExpress 10.
 
 Before run solution:
-1. In projects NCD_Web/NCD_WebService in web.configs you need to write correct sqlConnectionString.
+1. In projects NCD_Web/NCD_WebService in web.configs you need to write correct sqlConnectionString (Database name: NationalCriminalsDatabase).
 2. With the help of managment studio run sql script NCD_Model/TestData.sql (Database scheme with test data).

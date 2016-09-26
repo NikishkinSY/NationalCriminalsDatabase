@@ -75,23 +75,28 @@ namespace NCD_WebService
 
                     //get MaxItemsPerRequest from config file 
                     int maxItems = 0;
-                    if (!int.TryParse(System.Configuration.ConfigurationManager.AppSettings["MaxItemsPerEmail"], out maxItems))
+                    if (!(int.TryParse(System.Configuration.ConfigurationManager.AppSettings["MaxItemsPerEmail"], out maxItems)
+                        && maxItems > 0))
                         maxItems = MaxItemsPerEmail;
 
                     //async send email with attachments (max N items in email)
                     if (!attachments.Any())
                         await EmailSendManager.EmailSendAsync("No matches", email, "Criminal persons");
-
-                    int part = 1;
-                    int parts = attachments.Count / maxItems;
-                    while (attachments.Any())
+                    else
                     {
-                        var attachmentsInEmail = attachments.Take(maxItems).ToArray();
-                        //delete from whole collection
-                        for (int i = 0; i < attachmentsInEmail.Length; i++)
-                            attachments.Remove(attachmentsInEmail[i]);
+                        int part = 1;
+                        int parts = attachments.Count / maxItems;
+                        if (attachments.Count % maxItems > 0) parts++;
 
-                        await EmailSendManager.EmailSendAsync(String.Format("Search results: {0}, part {1} of {2}", items.Length, part++, parts), email, "Criminal persons", attachmentsInEmail);
+                        while (attachments.Any())
+                        {
+                            var attachmentsInEmail = attachments.Take(maxItems).ToArray();
+                            //delete from whole collection
+                            for (int i = 0; i < attachmentsInEmail.Length; i++)
+                                attachments.Remove(attachmentsInEmail[i]);
+
+                            await EmailSendManager.EmailSendAsync(String.Format("Search results: {0}, part {1} of {2}", items.Length, part++, parts), email, "Criminal persons", attachmentsInEmail);
+                        }
                     }
 
                     logger.Info("Succesfully sent emails to {0} with {1} attachments", email, items.Length);
